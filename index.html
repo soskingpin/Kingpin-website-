@@ -1,0 +1,2053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingpin Pips FX - Forex Trading Mastery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff00ff; /* Hot pink */
+            --secondary: #00ff00; /* Lime green */
+            --dark: #0d001a; /* Deep purple */
+            --light: #f9f0ff;
+            --gray: #e6d1ff;
+            --success: #00ff00;
+            --text: #2d004d;
+            --text-light: #5a0099;
+            --glow-primary: 0 0 15px rgba(255, 0, 255, 0.5);
+            --glow-secondary: 0 0 15px rgba(0, 255, 0, 0.5);
+            --glow-card: 0 0 25px rgba(138, 43, 226, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f8ff, #f5e6ff);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--dark), #1a0033);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.2);
+            animation: headerGlow 3s infinite alternate;
+        }
+        
+        @keyframes headerGlow {
+            from { box-shadow: 0 4px 20px rgba(138, 43, 226, 0.1); }
+            to { box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4); }
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.9rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            position: relative;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+            text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.4s ease;
+            border-radius: 1px;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 0, 26, 0.85), rgba(13, 0, 26, 0.9)), 
+                        url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            margin-bottom: 25px;
+            line-height: 1.15;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.03em;
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+            margin-bottom: 45px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: none;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: -1;
+            transition: transform 0.5s;
+            transform: scaleX(0);
+            transform-origin: 0 0;
+        }
+        
+        .btn:hover:after {
+            transform: scaleX(1);
+        }
+        
+        .btn-primary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--secondary);
+            box-shadow: var(--glow-secondary);
+        }
+        
+        .btn-primary:hover {
+            color: var(--dark);
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Performance Section */
+        .performance {
+            background: white;
+            padding: 70px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .performance::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.03) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 2.8rem);
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            box-shadow: var(--glow-card);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .stats h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .stats-value {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .stats-value::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .stats-desc {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+        
+        /* Courses Section */
+        .courses {
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .courses::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.02) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 1;
+            padding: 0 15px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(218, 112, 214, 0.2);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--glow-card), 0 15px 40px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(218, 112, 214, 0.5);
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .course-card:hover::before {
+            opacity: 1;
+        }
+        
+        .course-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            color: white;
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(90deg, var(--primary), #ff66ff);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+            animation: pulseBadge 2s infinite;
+        }
+        
+        @keyframes pulseBadge {
+            0% { box-shadow: 0 0 10px rgba(255, 0, 255, 0.4); }
+            50% { box-shadow: 0 0 20px rgba(255, 0, 255, 0.7); }
+            100% { box-shadow: 0 0 10px rgba(255, 0, 255, 0.4); }
+        }
+        
+        .course-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .course-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+        
+        .course-price span {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.8;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .price-discount {
+            text-decoration: line-through;
+            color: #ff6666;
+            font-size: 1.5rem;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .course-body {
+            padding: 25px;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .course-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .course-features li:hover {
+            padding-left: 10px;
+            background: rgba(255, 0, 255, 0.05);
+        }
+        
+        .course-features li i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .course-footer {
+            padding: 0 25px 25px;
+        }
+        
+        /* Signal Cards - New Section */
+        .signals-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f8ff, #f5e6ff);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .signals-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.03) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .signal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .signal-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(218, 112, 214, 0.2);
+        }
+        
+        .signal-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--glow-card), 0 15px 40px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(218, 112, 214, 0.5);
+        }
+        
+        .signal-header {
+            padding: 25px;
+            background: linear-gradient(135deg, #ff00ff, #9400d3);
+            color: white;
+            position: relative;
+        }
+        
+        .signal-title {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .signal-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .signal-duration {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            display: block;
+        }
+        
+        .signal-body {
+            padding: 25px;
+        }
+        
+        .signal-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .signal-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .signal-features li i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta h2 {
+            font-size: clamp(2.2rem, 6vw, 2.8rem);
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        
+        /* Join Section */
+        .join-section {
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .join-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .join-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .join-section h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .join-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+        
+        .founder-credit {
+            margin-top: 30px;
+            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 255, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #a0b3d6;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #a0b3d6;
+            font-size: 0.9rem;
+        }
+        
+        /* Payment Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: modalFadeIn 0.4s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { background: rgba(0,0,0,0); }
+            to { background: rgba(0,0,0,0.85); }
+        }
+        
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 650px;
+            margin: 50px auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(138, 43, 226, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .modal-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .modal-header p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        
+        .modal-body {
+            padding: 35px;
+        }
+        
+        .payment-methods {
+            margin-bottom: 30px;
+        }
+        
+        .payment-method {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-method h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .payment-details {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .payment-details h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+        
+        .account-holder {
+            background: linear-gradient(135deg, #f9f0ff, #e6d1ff);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 15px 0;
+            font-weight: 600;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .instructions {
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .instructions li:before {
+            content: counter(item);
+            counter-increment: item;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 22px;
+            height: 22px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        
+        .modal-footer {
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid var(--gray);
+        }
+        
+        .btn-back {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-back:hover {
+            background: #5a6268;
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #075E54, #128C7E);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #054842, #0B6E5B);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.4);
+        }
+        
+        .whatsapp-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Broker Selection Modal */
+        .broker-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            animation: modalFadeIn 0.4s ease;
+        }
+        
+        .broker-content {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            margin: 100px auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(138, 43, 226, 0.3);
+        }
+        
+        .broker-header {
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .broker-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .broker-body {
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .broker-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .broker-option {
+            padding: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .broker-option:hover {
+            transform: translateY(-3px);
+        }
+        
+        .broker-option.weltrader {
+            background: linear-gradient(135deg, #ff00ff, #9400d3);
+            color: white;
+        }
+        
+        .broker-option.deriv {
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            color: white;
+        }
+        
+        /* Circular Loading Animation */
+        .circular-loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 0, 255, 0.2);
+            border-radius: 50%;
+            border-top: 8px solid var(--primary);
+            border-right: 8px solid var(--secondary);
+            animation: spin 1.5s linear infinite;
+            margin: 30px auto;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stats-value {
+                font-size: 3.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .join-section h2 {
+                font-size: 2rem;
+            }
+            
+            .modal-body {
+                padding: 25px 20px;
+            }
+            
+            .payment-method, .payment-details {
+                padding: 20px;
+            }
+        }
+        
+        /* ===== INTRO ANIMATION ===== */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        
+        #candlestickCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .brand-reveal {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .brand-name {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            color: transparent;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+        
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        .loading-circle {
+            width: 100px;
+            height: 100px;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top: 6px solid var(--secondary);
+            border-right: 6px solid var(--primary);
+            animation: spin 1.5s linear infinite;
+            margin: 30px auto;
+        }
+        
+        .loading-text {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        .fade-out {
+            animation: fadeOut 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+        
+        /* Candlestick Glow Effect */
+        .candlestick-glow {
+            filter: drop-shadow(0 0 8px rgba(255, 0, 255, 0.5)) 
+                    drop-shadow(0 0 15px rgba(255, 0, 255, 0.5));
+        }
+        
+        /* Glowing Text Effect */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7),
+                        0 0 20px rgba(255, 0, 255, 0.5),
+                        0 0 30px rgba(255, 0, 255, 0.3);
+        }
+        
+        /* Premium Badge */
+        .premium-badge {
+            background: linear-gradient(135deg, var(--primary), #ff66ff);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+            animation: pulseBadge 2s infinite;
+        }
+        
+        /* Hover effects for buttons */
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 25px rgba(0, 255, 0, 0.3);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+            position: relative;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+            top: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .countdown-item {
+            background: linear-gradient(135deg, var(--dark), #1a0033);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--glow-card);
+        }
+        
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- KINGPIN PIPS FX INTRO ANIMATION -->
+    <div class="intro-overlay" id="introOverlay">
+        <canvas id="candlestickCanvas"></canvas>
+        <div class="brand-reveal">
+            <div class="brand-name">Kingpin Pips FX</div>
+            <div class="loading-circle"></div>
+            <div class="loading-text">Loading Premium Trading Experience</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                    <span>Kingpin Pips FX</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#performance">Performance</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#signals">Signals</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master Forex Trading with Kingpin Pips FX</h1>
+                <p>Unlock your trading potential with our comprehensive mentorship programs. Learn from a pro and build consistent profits in the markets.</p>
+                <div class="btn-group">
+                    <a href="#courses" class="btn btn-primary">Start Trading Course</a>
+                    <a href="#signals" class="btn btn-outline">Get Signals Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="performance" id="performance">
+        <div class="container">
+            <h2 class="section-title">Trading Performance</h2>
+            <div class="stats">
+                <h3>Total Pips Captured</h3>
+                <div class="stats-value">3,850+</div>
+                <div class="stats-desc">This month alone</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mentorship Courses</h2>
+                <p>Choose from our comprehensive trading programs designed for all skill levels</p>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3 class="course-title">Full Mentorship Course</h3>
+                        <div class="course-price">$50 <span>one-time</span></div>
+                        <p class="price-discount">$75</p>
+                        <p>Complete trading education with personalized mentorship</p>
+                    </div>
+                    <div class="course-body">
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Market structure basics</li>
+                            <li><i class="fas fa-check-circle"></i> Price Action Mastery</li>
+                            <li><i class="fas fa-check-circle"></i> MT5 Trading System implementation</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced trading concepts</li>
+                            <li><i class="fas fa-check-circle"></i> Risk management strategies</li>
+                            <li><i class="fas fa-check-circle"></i> Weekly Q&A sessions</li>
+                        </ul>
+                    </div>
+                    <div class="course-footer">
+                        <button class="btn btn-primary btn-block enroll-btn" data-course="Full Mentorship Course" data-price="50">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3 class="course-title">MT5 Trading System</h3>
+                        <div class="course-price">$30 <span>one-time</span></div>
+                        <p class="price-discount">$45</p>
+                        <p>Our proprietary MT5 trading system for consistent profits</p>
+                    </div>
+                    <div class="course-body">
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Complete MT5 setup guide</li>
+                            <li><i class="fas fa-check-circle"></i> Custom indicators package</li>
+                            <li><i class="fas fa-check-circle"></i> Entry & exit strategies</li>
+                            <li><i class="fas fa-check-circle"></i> Risk management protocols</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 support access</li>
+                            <li><i class="fas fa-check-circle"></i> Video tutorials library</li>
+                        </ul>
+                    </div>
+                    <div class="course-footer">
+                        <button class="btn btn-primary btn-block enroll-btn" data-course="MT5 Trading System" data-price="30">Enroll Now</button>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-header">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <h3 class="course-title">Mobile Trading Course</h3>
+                        <div class="course-price">$20 <span>one-time</span></div>
+                        <p class="price-discount">$35</p>
+                        <p>Learn to trade effectively from your mobile device</p>
+                    </div>
+                    <div class="course-body">
+                        <ul class="course-features">
+                            <li><i class="fas fa-check-circle"></i> Mobile platform setup</li>
+                            <li><i class="fas fa-check-circle"></i> Mobile-specific strategies</li>
+                            <li><i class="fas fa-check-circle"></i> On-the-go risk management</li>
+                            <li><i class="fas fa-check-circle"></i> Mobile chart analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Signal interpretation</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 access to materials</li>
+                        </ul>
+                    </div>
+                    <div class="course-footer">
+                        <button class="btn btn-primary btn-block enroll-btn" data-course="Mobile Trading Course" data-price="20">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="signals-section" id="signals">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trading Signals</h2>
+                <p>Get real-time trading signals delivered directly to your device</p>
+            </div>
+            <div class="signal-grid">
+                <div class="signal-card">
+                    <div class="signal-header">
+                        <h3 class="signal-title">3-Day Signals</h3>
+                        <div class="signal-price">$5 <span class="signal-duration">for 3 days</span></div>
+                    </div>
+                    <div class="signal-body">
+                        <ul class="signal-features">
+                            <li><i class="fas fa-bullseye"></i> 5-8 high-quality signals</li>
+                            <li><i class="fas fa-chart-line"></i> Entry, Stop-Loss & Take-Profit</li>
+                            <li><i class="fas fa-mobile-alt"></i> Mobile & Desktop access</li>
+                            <li><i class="fas fa-comment"></i> Trade rationale provided</li>
+                            <li><i class="fas fa-clock"></i> Real-time notifications</li>
+                        </ul>
+                    </div>
+                    <div class="course-footer">
+                        <button class="btn btn-primary btn-block enroll-btn" data-course="3-Day Signals" data-price="5" data-type="signal">Get Signals</button>
+                    </div>
+                </div>
+                <div class="signal-card">
+                    <div class="signal-header">
+                        <h3 class="signal-title">7-Day Signals</h3>
+                        <div class="signal-price">$12 <span class="signal-duration">for 7 days</span></div>
+                    </div>
+                    <div class="signal-body">
+                        <ul class="signal-features">
+                            <li><i class="fas fa-bullseye"></i> 15-20 high-quality signals</li>
+                            <li><i class="fas fa-chart-line"></i> Entry, Stop-Loss & Take-Profit</li>
+                            <li><i class="fas fa-mobile-alt"></i> Mobile & Desktop access</li>
+                            <li><i class="fas fa-comment"></i> Trade rationale provided</li>
+                            <li><i class="fas fa-clock"></i> Real-time notifications</li>
+                            <li><i class="fas fa-book"></i> Basic trading guide included</li>
+                        </ul>
+                    </div>
+                    <div class="course-footer">
+                        <button class="btn btn-primary btn-block enroll-btn" data-course="7-Day Signals" data-price="12" data-type="signal">Get Signals</button>
+                    </div>
+                </div>
+                <div class="signal-card">
+                    <div class="signal-header" style="background: linear-gradient(135deg, #ff00ff, #9400d3);">
+                        <div class="premium-badge">BEST VALUE</div>
+                        <h3 class="signal-title">30-Day Signals</h3>
+                        <div class="signal-price">$25 <span class="signal-duration">for 30 days</span></div>
+                    </div>
+                    <div class="signal-body">
+                        <ul class="signal-features">
+                            <li><i class="fas fa-bullseye"></i> 60-70 high-quality signals</li>
+                            <li><i class="fas fa-chart-line"></i> Entry, Stop-Loss & Take-Profit</li>
+                            <li><i class="fas fa-mobile-alt"></i> Mobile & Desktop access</li>
+                            <li><i class="fas fa-comment"></i> Trade rationale provided</li>
+                            <li><i class="fas fa-clock"></i> Real-time notifications</li>
+                            <li><i class="fas fa-book"></i> Complete trading guide included</li>
+                            <li><i class="fas fa-users"></i> Exclusive community access</li>
+                        </ul>
+                    </div>
+                    <div class="course-footer">
+                        <button class="btn btn-primary btn-block enroll-btn" data-course="30-Day Signals" data-price="25" data-type="signal">Get Signals</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Student Success Stories</h2>
+                <p>Hear what our students say about their trading journey with Kingpin Pips FX</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        Kingpin Pips FX transformed my trading. The MT5 system alone has made me consistent profits for the past 6 months. The signals are spot on!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>Jane Doe</h4>
+                            <p>Forex Trader</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        The mobile course was exactly what I needed. I can now trade effectively while traveling for work. The signals have an amazing accuracy rate!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Samuel M.</h4>
+                            <p>Full-time Trader</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        I was skeptical at first, but the full mentorship course changed everything. The personalized guidance helped me develop a profitable trading strategy.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TK</div>
+                        <div class="author-info">
+                            <h4>Tinashe K.</h4>
+                            <p>Part-time Trader</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="join-section">
+        <div class="container">
+            <div class="join-container">
+                <h2>Create Your Trading Account Now</h2>
+                <p>Join thousands of successful traders who have transformed their trading journey with Kingpin Pips FX</p>
+                <a href="#" class="btn btn-primary broker-btn" style="font-size: 1.2rem; padding: 15px 40px; margin-top: 10px;">
+                    <i class="fas fa-user-plus"></i> Join Now
+                </a>
+                <div class="countdown" style="margin-top: 30px;">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">05</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">12</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">45</div>
+                        <div class="countdown-label">Mins</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">30</div>
+                        <div class="countdown-label">Secs</div>
+                    </div>
+                </div>
+                <p class="founder-credit">Founder Kingpin Pips FX</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kingpin Pips FX</h3>
+                    <p>Forex mentorship and proven strategies from professional traders.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Full Mentorship Course</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> MT5 Trading System</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> Mobile Trading Course</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Signals</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-bullseye"></i> 3-Day Signals</a></li>
+                        <li><a href="#"><i class="fas fa-bullseye"></i> 7-Day Signals</a></li>
+                        <li><a href="#"><i class="fas fa-bullseye"></i> 30-Day Signals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://wa.me/263782637207" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: +263782637207</a></li>
+                        <li><a href="tel:263782637207"><i class="fas fa-phone"></i> Call: +263782637207</a></li>
+                        <li><a href="mailto:kingpinpipsfx@gmail.com"><i class="fas fa-envelope"></i> Email: kingpinpipsfx@gmail.com</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Vb6EGB3F6sn1TqnCzI1m" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Channel</a></li>
+                        <li><a href="https://chat.whatsapp.com/IMmcYAUMPRc7aHhIY8uWlx?mode=ac_t" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Group</a></li>
+                        <li><a href="https://www.tiktok.com/@sos.kingpin?_t=ZM-8zTDcT5js4W&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok: @sos.kingpin</a></li>
+                        <li><a href="https://www.instagram.com/9827tommy?igsh=MWRxMjFsejJlbWllMQ==" target="_blank"><i class="fab fa-instagram"></i> Instagram: @9827tommy</a></li>
+                        <li><a href="https://www.facebook.com/soskingpin" target="_blank"><i class="fab fa-facebook-f"></i> Facebook: soskingpin</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Kingpin Pips FX. All rights reserved. Trading involves substantial risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Payment</h2>
+                <p>kingpinpipsfx.forex.mentorship</p>
+            </div>
+            <div class="modal-body">
+                <h3>Choose Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <h3><i class="fas fa-mobile-alt"></i> EcoCash</h3>
+                        <p>Mobile Money Transfer</p>
+                        <p>Mobile Number: <strong>0782637207</strong></p>
+                        <p>Account Name: <strong>TINASHE MATONGORERE</strong></p>
+                    </div>
+                    <div class="payment-method">
+                        <h3><i class="fas fa-wallet"></i> InnBucks</h3>
+                        <p>Digital Wallet</p>
+                        <p>Wallet ID: <strong>0782637207</strong></p>
+                        <p>Account Name: <strong>TINASHE MATONGORERE</strong></p>
+                    </div>
+                    <div class="payment-method">
+                        <h3><i class="fas fa-university"></i> NMB Connect Bank</h3>
+                        <p>Bank Transfer</p>
+                        <p>Account Number: <strong>09052423102001</strong></p>
+                        <p>Account Name: <strong>TINASHE MATONGORERE</strong></p>
+                    </div>
+                </div>
+                <div class="payment-details">
+                    <h3>Payment Details</h3>
+                    <div class="account-holder">
+                        Course: <strong id="selectedCourse">Full Mentorship Course</strong>
+                    </div>
+                    <div class="account-holder">
+                        Amount: <strong>$<span id="coursePrice">50</span></strong>
+                    </div>
+                </div>
+                <div class="circular-loader" id="loadingIndicator"></div>
+                <div class="instructions">
+                    <h3>Payment Instructions</h3>
+                    <ul>
+                        <li>Make payment using your preferred method</li>
+                        <li>Send payment confirmation screenshot to WhatsApp: +263782637207</li>
+                        <li>Include your full name and selected course in the message</li>
+                        <li>Access details will be sent within 24 hours of payment confirmation</li>
+                        <li>For signal subscriptions, access starts immediately after payment confirmation</li>
+                    </ul>
+                </div>
+                <div class="whatsapp-section">
+                    <h3>Confirm & Pay</h3>
+                    <button class="btn whatsapp-btn" id="whatsappBtn">
+                        <i class="fab fa-whatsapp"></i> Confirm via WhatsApp
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-back" id="backBtn">Back to Courses</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Broker Selection Modal -->
+    <div class="broker-modal" id="brokerModal">
+        <div class="broker-content">
+            <div class="broker-header">
+                <h2>Select Broker</h2>
+            </div>
+            <div class="broker-body">
+                <p>Choose your preferred trading platform:</p>
+                <div class="broker-options">
+                    <div class="broker-option weltrader" data-broker="weltrader">Weltrader</div>
+                    <div class="broker-option deriv" data-broker="deriv">Deriv</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize intro animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prevent scrolling during intro
+            document.body.style.overflow = 'hidden';
+            // Initialize the intro
+            initIntro();
+            // Initialize countdown timer
+            initCountdown();
+            
+            // Your existing website JavaScript
+            const modal = document.getElementById('paymentModal');
+            const brokerModal = document.getElementById('brokerModal');
+            const enrollBtns = document.querySelectorAll('.enroll-btn');
+            const brokerBtns = document.querySelectorAll('.broker-option');
+            const coursePrice = document.getElementById('coursePrice');
+            const selectedCourse = document.getElementById('selectedCourse');
+            const backBtn = document.getElementById('backBtn');
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            const ecocashBtn = document.getElementById('ecocashBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const brokerBtn = document.querySelector('.broker-btn');
+            
+            // Current course info
+            let currentCourse = '';
+            let currentPrice = '';
+            let isSignal = false;
+            const whatsappNumber = '263782637207';
+            
+            // Open modal when enroll button is clicked
+            enrollBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    currentCourse = this.getAttribute('data-course');
+                    currentPrice = this.getAttribute('data-price');
+                    isSignal = this.getAttribute('data-type') === 'signal';
+                    // Update the course price and name in modal
+                    coursePrice.textContent = currentPrice;
+                    selectedCourse.textContent = currentCourse;
+                    // Show modal
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+            
+            // Open broker modal when Join Now is clicked
+            brokerBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                brokerModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close broker modal when broker is selected
+            brokerBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const broker = this.getAttribute('data-broker');
+                    if (broker === 'weltrader') {
+                        window.open('https://track.gowt.me/visit/?bta=47242&brand=weltrade', '_blank');
+                    } else if (broker === 'deriv') {
+                        window.open('https://track.deriv.com/_jtEztSrX4dJZl7VyVw174GNd7ZgqdRLk/1/', '_blank');
+                    }
+                    brokerModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            // Close modal when back button is clicked
+            backBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (e.target === brokerModal) {
+                    brokerModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // WhatsApp button functionality
+            whatsappBtn.addEventListener('click', function() {
+                // Show loading indicator
+                loadingIndicator.style.display = 'block';
+                
+                // Simulate processing time
+                setTimeout(() => {
+                    const message = `Hello Kingpin Pips FX, I am interested in the ${currentCourse} priced at $${currentPrice}. My name is [Your Full Name].`;
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                    // Hide loading indicator after a short delay
+                    setTimeout(() => {
+                        loadingIndicator.style.display = 'none';
+                    }, 500);
+                }, 1000);
+            });
+        });
+
+        function initCountdown() {
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            // Set the date we're counting down to
+            const countDownDate = new Date();
+            countDownDate.setDate(countDownDate.getDate() + 5);
+            countDownDate.setHours(0, 0, 0, 0);
+            
+            // Update the count down every 1 second
+            const x = setInterval(function() {
+                // Get today's date and time
+                const now = new Date().getTime();
+                
+                // Find the distance between now and the count down date
+                const distance = countDownDate - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result in the elements
+                daysEl.textContent = days.toString().padStart(2, '0');
+                hoursEl.textContent = hours.toString().padStart(2, '0');
+                minutesEl.textContent = minutes.toString().padStart(2, '0');
+                secondsEl.textContent = seconds.toString().padStart(2, '0');
+                
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    daysEl.textContent = "00";
+                    hoursEl.textContent = "00";
+                    minutesEl.textContent = "00";
+                    secondsEl.textContent = "00";
+                }
+            }, 1000);
+        }
+
+        function initIntro() {
+            const canvas = document.getElementById('candlestickCanvas');
+            const ctx = canvas.getContext('2d');
+            const introOverlay = document.getElementById('introOverlay');
+            
+            // Set canvas dimensions
+            function resizeCanvas() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width * dpr;
+                canvas.height = rect.height * dpr;
+                ctx.scale(dpr, dpr);
+                drawChartGrid();
+            }
+            
+            // Draw chart grid
+            function drawChartGrid() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const width = canvas.clientWidth;
+                const height = canvas.clientHeight;
+                const gridColor = 'rgba(255, 255, 255, 0.05)';
+                
+                // Vertical grid lines
+                ctx.strokeStyle = gridColor;
+                ctx.lineWidth = 1;
+                for (let x = 0; x < width; x += width / 8) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, height);
+                    ctx.stroke();
+                }
+                
+                // Horizontal grid lines
+                for (let y = 0; y < height; y += height / 5) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(width, y);
+                    ctx.stroke();
+                }
+            }
+            
+            // Candlestick parameters
+            const candleWidth = 16;
+            const candleGap = 6;
+            let candleCount = Math.floor(canvas.clientWidth / (candleWidth + candleGap)) + 10;
+            let offsetX = 0;
+            let candles = [];
+            let lastClose = 1.0800;
+            
+            // Generate candlesticks
+            function generateCandle(prevClose) {
+                const pipSize = 0.0001;
+                const trendBias = Math.random() > 0.6 ? 1 : -1;
+                let open = prevClose + (Math.random() - 0.5) * 5 * pipSize;
+                let close = open + trendBias * (5 + Math.random() * 15) * pipSize;
+                let high = Math.max(open, close) + Math.random() * 8 * pipSize;
+                let low = Math.min(open, close) - Math.random() * 8 * pipSize;
+                
+                // Ensure minimum candle body
+                if (Math.abs(close - open) < 3 * pipSize) {
+                    close = open + (Math.random() > 0.5 ? 1 : -1) * 3 * pipSize;
+                }
+                
+                return {
+                    open: parseFloat(open.toFixed(4)),
+                    close: parseFloat(close.toFixed(4)),
+                    high: parseFloat(high.toFixed(4)),
+                    low: parseFloat(low.toFixed(4))
+                };
+            }
+            
+            // Initialize candles
+            for (let i = 0; i < candleCount; i++) {
+                let candle = generateCandle(lastClose);
+                lastClose = candle.close;
+                candles.push(candle);
+            }
+            
+            // Draw candlestick
+            function drawCandle(x, candle) {
+                const isBullish = candle.close > candle.open;
+                const bodyTop = Math.min(candle.open, candle.close);
+                const bodyBottom = Math.max(candle.open, candle.close);
+                const scaleY = 8000;
+                
+                // Calculate pixel positions
+                const height = canvas.clientHeight;
+                const bodyHeight = (bodyBottom - bodyTop) * scaleY;
+                const bodyY = height * 0.7 - (bodyTop - 1.0750) * scaleY;
+                const wickTop = height * 0.7 - (candle.high - 1.0750) * scaleY;
+                const wickBottom = height * 0.7 - (candle.low - 1.0750) * scaleY;
+                
+                // Colors - bull = green, bear = red
+                const bodyColor = isBullish ? 'rgba(0, 255, 0, 0.9)' : 'rgba(255, 0, 0, 0.9)';
+                const wickColor = isBullish ? 'rgba(0, 255, 0, 0.95)' : 'rgba(255, 0, 0, 0.95)';
+                
+                // Draw wick
+                ctx.beginPath();
+                ctx.strokeStyle = wickColor;
+                ctx.lineWidth = 2;
+                ctx.moveTo(x + candleWidth / 2, wickTop);
+                ctx.lineTo(x + candleWidth / 2, wickBottom);
+                ctx.stroke();
+                
+                // Draw body
+                ctx.fillStyle = bodyColor;
+                ctx.fillRect(x, bodyY, candleWidth, bodyHeight);
+                
+                // Body highlight
+                ctx.strokeStyle = isBullish ? 'rgba(0, 255, 0, 0.7)' : 'rgba(255, 0, 0, 0.7)';
+                ctx.lineWidth = 1;
+                ctx.strokeRect(x + 0.5, bodyY + 0.5, candleWidth - 1, bodyHeight - 1);
+            }
+            
+            // Animation loop
+            function animate() {
+                drawChartGrid();
+                
+                // Slow down the movement
+                offsetX -= 0.6;
+                
+                // Cycle candles when needed
+                if (Math.abs(offsetX) > (candleWidth + candleGap)) {
+                    offsetX += candleWidth + candleGap;
+                    candles.shift();
+                    candles.push(generateCandle(candles[candles.length - 1].close));
+                }
+                
+                // Draw all candles with offset
+                for (let i = 0; i < candles.length; i++) {
+                    let x = i * (candleWidth + candleGap) + offsetX;
+                    if (x > -candleWidth && x < canvas.clientWidth) {
+                        drawCandle(x, candles[i]);
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            // Start the intro sequence
+            function startIntroSequence() {
+                // Wait for animations to complete
+                setTimeout(() => {
+                    // Fade out overlay
+                    introOverlay.classList.add('fade-out');
+                    setTimeout(() => {
+                        introOverlay.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 800);
+                }, 4500);
+            }
+            
+            // Initialize and start animations
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            animate();
+            startIntroSequence();
+        }
+    </script>
+</body>
+</html>
